@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}" media="all and (max-width:900px)">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Begin a header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+	 <a class="navbar-brand" href="#" ><img src="{% static 'img/census.png' %}" class="img" alt="" height="80" width="80">
+	 </a>
+
+	<div class="block mx-auto text-light ">
+	 	<h4 class="mx-auto justify-content-center">KYRGYZ REPUBLIC POPULATION AND HOUSING CENSUS
+	 	</h4>
+	 	<h4 class="year">2020
+	 	</h4>
+	</div>
+</nav>
+<!-- End a header -->
+
+<div class="container mx-auto mr-auto justify-content-center">
+	<div class="row justify-content-center">
+        <div class="tab-content" id="myTabContent">
+				<!-- Begin 1 first a form -->
+			  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="container mrt">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mx-auto  ">
+                            <form action="" method="post">
+                            {% csrf_token %}
+                                  <div class="form-group marria ">
+                                    <i class="fas fa-phone-square-alt mr-2" style="font-size: 24px;color: #ff0000;"></i>
+                                    <label for="exampleInputEmail1">Сиздин номериниз</label>
+                                    <input name="username" type="text" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="996XXXXXXXXX" pattern="^((996\d{9}$)|((([a-zA-z]+$)" title="напишите номер по указаному формату 996123456789">
+{#                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+                                  </div>
+
+                                  <div class="form-group marria"  >
+                                    <i class="fas fa-lock mr-2" style="font-size: 22px;"></i>
+                                    <label for="exampleInputPassword1">Сыр созунуз</label>
+                                    <input name="password" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Сыр соз" pattern="((\d{4,8})|(\d{4,8}\s)|[a-zA-Z]+$)" title="введите правильный пароль, только цифры">
+                                  </div>
+                                    {% if login_error %}
+                                        <label class="alert alert-danger" role="alert" style="color: red;font-size: 22px;">{{ login_error }}</label>
+                                    {% endif %}
+{#                                  <div class="form-group form-check">#}
+{#                                    <input type="checkbox" class="form-check-input mrl" id="exampleCheck1">#}
+{#                                    <label class="form-check-label marria1 " for="exampleCheck1">Я не робот</label>#}
+{#                                  </div>#}
+            {#                    {% if username  %}#}
+            {#                      <button href="/auth/logout/" class="btn btn-outline-primary btn-lg btn-block">Чыгуу({{ username }})</button>#}
+            {#                    {% else %}#}
+                                  <button href="/auth/login/" type="submit" value="Войти" class="btn btn-outline-primary btn-lg btn-block">Кируу</button>
+            {#                    {% endif %}#}
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        </div>
+	</div>
+
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+<script src="https://kit.fontawesome.com/0f9f01e84c.js" crossorigin="anonymous"></script>
+</html>

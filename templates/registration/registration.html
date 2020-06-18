@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}" media="all and (max-width:900px)">
+    <title>Login</title>
+</head>
+<body>
+
+<!-- Begin a header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+	 <a class="navbar-brand" href="#" ><img src="{% static 'img/census.png' %}" class="img" alt="" height="80" width="80">
+	 </a>
+
+	<div class="block mx-auto text-light ">
+	 	<h4 class="mx-auto justify-content-center">KYRGYZ REPUBLIC POPULATION AND HOUSING CENSUS
+	 	</h4>
+	 	<h4 class="year">2020
+	 	</h4>
+	</div>
+</nav>
+<!-- End a header -->
+
+   <!-- Begin a head -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-0 mb-5  bg-white rounded">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-center marria" id="navbarNav" >
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Башкы<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{% url 'showusers' %}">Кызматкерлер</a>
+      </li>
+        {% if user %}
+      <li class="nav-item active">
+        <a class="nav-link " href="/logout/">Чыгуу</a>
+      </li>
+          {% endif %}
+    </ul>
+  </div>
+</nav>
+<!-- End a head -->
+
+<!-- Begin a forms  -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h4 class="add mrl">Кызматкер кошуу</h4>
+		</div>
+	</div>
+	<div class="row mrl">
+		<div class="col-lg-5 col-md-12 col-sm-12">
+                {% if error %}
+                {{ error }}
+                {% endif %}
+			<form  action="" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+			<button type="submit"  onclick="myFunction()" value="Signup" class="btn btn-outline-primary btn-block mb-5 ">Кошуу</button>
+                    {% if login_error %}
+                    <label class="alert alert-danger"  > {{ login_error }}</label>
+                    {% endif %}
+                </div>
+			</form>
+                <script>
+          function myFunction() {
+            alert("Добавлено");
+          }
+</script>
+		</div>
+	</div>
+
+</div>
+<!-- End a forms -->
+
+
+
+</body>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://kit.fontawesome.com/0f9f01e84c.js" crossorigin="anonymous"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#                <input type="text" name="number" placeholder="number">#}
+{#                <input type="text" name="fname" placeholder="fname">#}
+{#                <input type="text" name="name" placeholder="name">#}
+{#                <input type="text" name="lname" placeholder="lname">#}
+{#                <input type="text" name="address" placeholder="address">#}
+{#                <input type="date" name="birtday" placeholder="birtday">#}
+{#                <input type="text" name="passport" placeholder="passport">#}
+{#                <input type="text" name="number_pass" placeholder="number pass">#}
+{#                <input type="text" name="body_pass" placeholder="body pass">#}
+{#                <input type="password" name="pin" placeholder="pin">#}
+{#                <input type="file" name="file" placeholder="file">#}
+{#                <input type="text" name="role" placeholder="role">#}
+{#			  <div class="form-group">#}
+{#			    <label for="number">Номер</label>#}
+{#			    <input type="tel" name="number" class="form-control" id="number" aria-describedby="number" placeholder="+996 XXX XX XX">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="fname">Фамиля сотрудника</label>#}
+{#			    <input type="text" name="fname" class="form-control" id="fname" aria-describedby="fname" placeholder="Фамиля">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="name">Имя сотрудника</label>#}
+{#			    <input  type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Имя">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="lname">Отчество</label>#}
+{#			    <input type="text" name="lname" class="form-control" id="lname" aria-describedby="lname" placeholder="Отчество">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="address">Адрес</label>#}
+{#			    <input type="text" name="address" class="form-control" id="address" aria-describedby="address" placeholder="Адресс">#}
+{#			  </div>#}
+{##}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="birtday">День рождения</label>#}
+{#			    <input type="date" name="birtday" class="form-control" id="birtday" aria-describedby="birtday" placeholder="День рождения">#}
+{#			  </div>#}
+{##}
+{##}
+{#			<label for="passport" >Серия паспорта (ID,AC,AN)</label>#}
+{#			<select class="custom-select">#}
+{#			  <option name="passport" value="1">ID</option>#}
+{#			  <option  name="passport" value="2">AC</option>#}
+{#			  <option  name="passport" value="3">AN</option>#}
+{#			</select>#}
+{##}
+{#			  <div class="form-group mrt">#}
+{#			    <label for="number_pass">Номер паспорта</label>#}
+{#			    <input type="text" name="number_pass" class="form-control" id="number_pass" aria-describedby="number_pass" placeholder="Номер паспорта">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="body_pass">Орган, который дал паспорт</label>#}
+{#			    <input type="text" name="body_pass" class="form-control" id="body_pass" placeholder="Орган">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="pin">Pin</label>#}
+{#			    <input type="text" name="pin" class="form-control" id="pin" placeholder="Pin">#}
+{#			  </div>#}
+{##}
+{#			  <div class="form-group">#}
+{#			    <label for="file">Example file input</label>#}
+{#			    <input type="file" name="file" class="form-control-file" id="file">#}
+{#			  </div>#}
+{##}
+{#			<label for="role" >Роль</label>#}
+{#			<select class="custom-select mb-4	">#}
+{#			  <option name="role" value="1">Инструктор</option>#}
+{#			  <option name="role" value="2">Координатор</option>#}
+{#			  <option name="role" value="3">Регистратор</option>#}
+{#			</select>#}

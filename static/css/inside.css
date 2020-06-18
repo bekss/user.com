@@ -1,0 +1,42 @@
+html{
+	margin:0;
+	padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Darker+Grotesque:700&display=swap');
+.marria{
+	font-size: 20px;
+	font-family:'Merriweather Sans', sans-serif;
+	font-weight: 500;
+}
+.marria1{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+	margin-left: 25px;
+}
+.mrt{
+	margin-top: 20px;
+}
+.mrl{
+	margin-left: -15px;
+}
+#exampleCheck1{
+	transform:scale(1.5);
+	opacity:0.9;
+	cursor:pointer;
+	margin-top: 10px;
+}
+.mrl{
+	margin-left: 120px;
+}
+.ln{
+	color: black;
+	font-size: 20px;
+	font-family: 'Darker Grotesque', sans-serif;
+}
+.wrongis{
+	color: red;
+	background: red;
+}
