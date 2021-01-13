@@ -1,4 +1,6 @@
 # Installation guide:  
+  python -m venv env  
+  source env/Scripts/activate  
   pip install -r requirements.txt  
 ## This is a website for processing your data. For each user, its own QR code (link) is created, which you can click on and view your information.  
 ### Registration Form  
